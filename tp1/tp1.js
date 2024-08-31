@@ -7,8 +7,8 @@
 let imagen;
 
 let NumCuad = 15;            // cantidad de cuadrados
-let CuadChico = 10;          // cuadrado más chico
-let CuadGrande = 250;        // cuadrado más grande
+let CuadChico = 10;          // cuadrado mas chico
+let CuadGrande = 250;        // cuadrado mas grande
 
 let Xcuad = [];              // x de los cuadrados
 let Ycuad = [];              // y de los cuadrados
@@ -28,7 +28,7 @@ function setup() {
 function draw() {
   background(255);
 
-  // for anidado para un patrón de cuadrados
+  // patron de cuadrados
   for (let i = 0; i < width / 10; i++) {
     for (let j = 0; j < height / 10; j++) {
       if ((i + j) % 2 === 0) {
@@ -55,8 +55,8 @@ function draw() {
     let size = calcularTamano(i);
     let MoverX = mouseX + map(i, 0, NumCuad, 50, 50);
     let MoverY = mouseY + map(i, 0, NumCuad, 50, 50);
-    Xcuad[i] = lerp(Xcuad[i], MoverX, VelCuad[i]); // movimiento suave en x
-    Ycuad[i] = lerp(Ycuad[i], MoverY, VelCuad[i]); // movimiento suave en y
+    Xcuad[i] = lerp(Xcuad[i], MoverX, VelCuad[i]); // movimiento suave x
+    Ycuad[i] = lerp(Ycuad[i], MoverY, VelCuad[i]); // mov suave y
 
     if (i % 2 === 0) {
       fill(40); // cuadrados negros
@@ -65,7 +65,7 @@ function draw() {
     }
 
     rectMode(CENTER); // cuadrado centrado
-    rect(Xcuad[i], Ycuad[i], size, size);  // dibuja los cuadrados en sí
+    rect(Xcuad[i], Ycuad[i], size, size);  // dibuja los cuadrados
   }
 
   image(imagen, 0, 0);
@@ -88,7 +88,7 @@ function keyPressed() {
 }
 
 function mousePressed() {
-  NumCuad = int(random(5, 20)); // cambia la cantidad de cuadrados aleatoriamente
+  NumCuad = int(random(5, 20)); // cambia la cantidad de cuadrados
   iniciarCuadrados(); // reincializa las variables con la nueva cantidad de cuadrados
   console.log(mouseX, mouseY);
 }
